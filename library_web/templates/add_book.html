@@ -1,0 +1,112 @@
+<!-- templates/add_book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            padding: 40px;
+            margin: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select, input[name="format"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 5px;
+            transition: border 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        #formatField {
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #219150;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>➕ Add a New Book</h1>
+    <form method="POST">
+        <label>Title:
+            <input type="text" name="title" required>
+        </label>
+        <label>Author:
+            <input type="text" name="author" required>
+        </label>
+        <label>Type:
+            <select name="type" onchange="document.getElementById('formatField').style.display = this.value === 'ebook' ? 'block' : 'none';">
+                <option value="book">Book</option>
+                <option value="ebook">E-Book</option>
+            </select>
+        </label>
+        <div id="formatField" style="display:none;">
+            <label>File Format:
+                <input type="text" name="format">
+            </label>
+        </div>
+        <button type="submit">📘 Add Book</button>
+    </form>
+    <a class="back-link" href="/">← Back to List</a>
+</body>
+</html>

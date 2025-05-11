@@ -1,0 +1,83 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .add-book {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .borrow-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .return-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 Library Books</h1>
+    <a class="add-book" href="/add">➕ Add New Book</a>
+    <ul>
+        {% for book in books %}
+            <li>
+                <span>{{ book.display_info() }}</span>
+                {% if not book.is_borrowed %}
+                    <a class="borrow-btn" href="/borrow/{{ book.title }}">Borrow</a>
+                {% else %}
+                    <a class="return-btn" href="/return/{{ book.title }}">Return</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
