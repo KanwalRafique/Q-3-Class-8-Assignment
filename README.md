@@ -26,6 +26,6 @@ A simple Flask-based web application to manage library books — add, borrow, an
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/library-system.git
-   cd library-system
+   git clone [https://github.com/yourusername/library-system.git](https://github.com/KanwalRafique/Q-3-Class-8-Assignment.git)
+   cd library_web
 ```
